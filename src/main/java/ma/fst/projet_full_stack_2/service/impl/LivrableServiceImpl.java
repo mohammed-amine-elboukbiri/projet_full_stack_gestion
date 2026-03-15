@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -13,7 +13,7 @@ import ma.fst.projet_full_stack_2.exception.UnauthorizedActionException;
 import ma.fst.projet_full_stack_2.mapper.LivrableMapper;
 import ma.fst.projet_full_stack_2.repository.LivrableRepository;
 import ma.fst.projet_full_stack_2.repository.PhaseRepository;
-import ma.fst.projet_full_stack_2.metier.LivrableService;
+import ma.fst.projet_full_stack_2.service.LivrableService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

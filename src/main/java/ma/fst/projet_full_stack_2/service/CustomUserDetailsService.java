@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier;
+package ma.fst.projet_full_stack_2.service;
 
 import ma.fst.projet_full_stack_2.entities.Employe;
 import ma.fst.projet_full_stack_2.repository.EmployeRepository;

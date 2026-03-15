@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier;
+package ma.fst.projet_full_stack_2.service;
 
 import ma.fst.projet_full_stack_2.dto.document.DocumentRequestDto;
 import ma.fst.projet_full_stack_2.dto.document.DocumentResponseDto;

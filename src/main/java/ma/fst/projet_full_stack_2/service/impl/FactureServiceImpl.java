@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -12,7 +12,7 @@ import ma.fst.projet_full_stack_2.exception.ResourceNotFoundException;
 import ma.fst.projet_full_stack_2.mapper.FactureMapper;
 import ma.fst.projet_full_stack_2.repository.FactureRepository;
 import ma.fst.projet_full_stack_2.repository.PhaseRepository;
-import ma.fst.projet_full_stack_2.metier.FactureService;
+import ma.fst.projet_full_stack_2.service.FactureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

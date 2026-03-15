@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -11,7 +11,7 @@ import ma.fst.projet_full_stack_2.exception.BadRequestException;
 import ma.fst.projet_full_stack_2.exception.ResourceNotFoundException;
 import ma.fst.projet_full_stack_2.mapper.OrganismeMapper;
 import ma.fst.projet_full_stack_2.repository.OrganismeRepository;
-import ma.fst.projet_full_stack_2.metier.OrganismeService;
+import ma.fst.projet_full_stack_2.service.OrganismeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
