@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -17,7 +17,7 @@ import ma.fst.projet_full_stack_2.mapper.ProjetMapper;
 import ma.fst.projet_full_stack_2.repository.EmployeRepository;
 import ma.fst.projet_full_stack_2.repository.OrganismeRepository;
 import ma.fst.projet_full_stack_2.repository.ProjetRepository;
-import ma.fst.projet_full_stack_2.metier.ProjetService;
+import ma.fst.projet_full_stack_2.service.ProjetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;

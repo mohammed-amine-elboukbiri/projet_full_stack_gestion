@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -9,7 +9,7 @@ import ma.fst.projet_full_stack_2.exception.BadRequestException;
 import ma.fst.projet_full_stack_2.exception.ResourceNotFoundException;
 import ma.fst.projet_full_stack_2.mapper.ProfilMapper;
 import ma.fst.projet_full_stack_2.repository.ProfilRepository;
-import ma.fst.projet_full_stack_2.metier.ProfilService;
+import ma.fst.projet_full_stack_2.service.ProfilService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

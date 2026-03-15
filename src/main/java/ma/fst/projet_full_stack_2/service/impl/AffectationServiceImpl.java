@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -13,7 +13,7 @@ import ma.fst.projet_full_stack_2.mapper.AffectationMapper;
 import ma.fst.projet_full_stack_2.repository.AffectationRepository;
 import ma.fst.projet_full_stack_2.repository.EmployeRepository;
 import ma.fst.projet_full_stack_2.repository.PhaseRepository;
-import ma.fst.projet_full_stack_2.metier.AffectationService;
+import ma.fst.projet_full_stack_2.service.AffectationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AffectationServiceImpl implements AffectationService {
+public class git aAffectationServiceImpl implements AffectationService {
 
     private final AffectationRepository affectationRepository;
     private final EmployeRepository employeRepository;

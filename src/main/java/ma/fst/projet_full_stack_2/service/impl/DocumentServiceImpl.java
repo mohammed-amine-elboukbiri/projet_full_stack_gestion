@@ -1,4 +1,4 @@
-package ma.fst.projet_full_stack_2.metier.impl;
+package ma.fst.projet_full_stack_2.service.impl;
 
 
 
@@ -11,7 +11,7 @@ import ma.fst.projet_full_stack_2.exception.ResourceNotFoundException;
 import ma.fst.projet_full_stack_2.mapper.DocumentMapper;
 import ma.fst.projet_full_stack_2.repository.DocumentRepository;
 import ma.fst.projet_full_stack_2.repository.ProjetRepository;
-import ma.fst.projet_full_stack_2.metier.DocumentService;
+import ma.fst.projet_full_stack_2.service.DocumentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
