@@ -20,32 +20,32 @@ public class LivrableController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public LivrableResponseDto create(@Valid @RequestBody LivrableRequestDto dto) {
         return livrableService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public LivrableResponseDto update(@PathVariable Long id, @Valid @RequestBody LivrableRequestDto dto) {
         return livrableService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public LivrableResponseDto getById(@PathVariable Long id) {
         return livrableService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public List<LivrableResponseDto> getAll() {
         return livrableService.getAll();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public void delete(@PathVariable Long id) {
         livrableService.delete(id);
     }

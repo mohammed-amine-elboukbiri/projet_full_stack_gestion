@@ -21,7 +21,7 @@ public class EmployeController {
     private final EmployeService employeService;
 
     @GetMapping("/page")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public PageResponseDto<EmployeResponseDto> getAllPaginated(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
@@ -33,42 +33,41 @@ public class EmployeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
 
     public EmployeResponseDto create(@Valid @RequestBody EmployeRequestDto dto) {
         return employeService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
 
     public EmployeResponseDto update(@PathVariable Long id, @Valid @RequestBody EmployeRequestDto dto) {
         return employeService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
-
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public EmployeResponseDto getById(@PathVariable Long id) {
         return employeService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
 
     public List<EmployeResponseDto> getAll() {
         return employeService.getAll();
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         employeService.delete(id);
     }
     @PostMapping("/search")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
 
     public List<EmployeResponseDto> search(@RequestBody EmployeSearchDto dto) {
         return employeService.search(dto);

@@ -21,7 +21,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class git aAffectationServiceImpl implements AffectationService {
+public class AffectationServiceImpl implements AffectationService {
 
     private final AffectationRepository affectationRepository;
     private final EmployeRepository employeRepository;
