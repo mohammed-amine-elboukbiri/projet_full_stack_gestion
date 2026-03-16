@@ -21,7 +21,7 @@ public class OrganismeController {
     private final OrganismeService organismeService;
 
     @GetMapping("/page")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
     public PageResponseDto<OrganismeResponseDto> getAllPaginated(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
@@ -33,38 +33,38 @@ public class OrganismeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('SECRETAIRE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','ADMINISTRATEUR')")
     public OrganismeResponseDto create(@Valid @RequestBody OrganismeRequestDto dto) {
         return organismeService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
     public OrganismeResponseDto update(@PathVariable Long id, @Valid @RequestBody OrganismeRequestDto dto) {
         return organismeService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
     public OrganismeResponseDto getById(@PathVariable Long id) {
         return organismeService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
 
     public List<OrganismeResponseDto> getAll() {
         return organismeService.getAll();
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         organismeService.delete(id);
     }
     @PostMapping("/search")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
     public List<OrganismeResponseDto> search(@RequestBody OrganismeSearchDto dto) {
         return organismeService.search(dto);
     }

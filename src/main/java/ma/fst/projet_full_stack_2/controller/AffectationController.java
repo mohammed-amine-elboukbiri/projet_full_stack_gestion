@@ -20,13 +20,13 @@ public class AffectationController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMINISTRATEUR')")
     public AffectationResponseDto create(@Valid @RequestBody AffectationRequestDto dto) {
         return affectationService.create(dto);
     }
 
     @PutMapping("/{employeId}/{phaseId}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMINISTRATEUR')")
     public AffectationResponseDto update(
             @PathVariable Long employeId,
             @PathVariable Long phaseId,
@@ -36,7 +36,7 @@ public class AffectationController {
     }
 
     @GetMapping("/{employeId}/{phaseId}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMINISTRATEUR')")
     public AffectationResponseDto getById(
             @PathVariable Long employeId,
             @PathVariable Long phaseId
@@ -45,13 +45,13 @@ public class AffectationController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMINISTRATEUR')")
     public List<AffectationResponseDto> getAll() {
         return affectationService.getAll();
     }
 
     @DeleteMapping("/{employeId}/{phaseId}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMINISTRATEUR')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(
             @PathVariable Long employeId,

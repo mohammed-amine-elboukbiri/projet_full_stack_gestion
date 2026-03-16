@@ -21,7 +21,7 @@ public class ProjetController {
     private final ProjetService projetService;
 
     @GetMapping("/page")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMINISTRATEUR')")
     public PageResponseDto<ProjetResponseDto> getAllPaginated(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
@@ -33,28 +33,28 @@ public class ProjetController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','ADMINISTRATEUR')")
 
     public ProjetResponseDto create(@Valid @RequestBody ProjetRequestDto dto) {
         return projetService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','ADMINISTRATEUR')")
 
     public ProjetResponseDto update(@PathVariable Long id, @Valid @RequestBody ProjetRequestDto dto) {
         return projetService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMINISTRATEUR')")
 
     public ProjetResponseDto getById(@PathVariable Long id) {
         return projetService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMINISTRATEUR')")
 
     public List<ProjetResponseDto> getAll() {
         return projetService.getAll();
@@ -62,13 +62,13 @@ public class ProjetController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasAnyRole('DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('DIRECTEUR','ADMINISTRATEUR')")
 
     public void delete(@PathVariable Long id) {
         projetService.delete(id);
     }
     @PostMapping("/search")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','DIRECTEUR','CHEF_PROJET','COMPTABLE','ADMINISTRATEUR')")
 
     public List<ProjetResponseDto> search(@RequestBody ProjetSearchDto dto) {
         return projetService.search(dto);

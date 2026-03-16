@@ -20,7 +20,7 @@ public class FactureController {
     private final FactureService factureService;
 
     @GetMapping("/page")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public PageResponseDto<FactureResponseDto> getAllPaginated(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
@@ -32,32 +32,32 @@ public class FactureController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','ADMINISTRATEUR')")
     public FactureResponseDto create(@Valid @RequestBody FactureRequestDto dto) {
         return factureService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','ADMINISTRATEUR')")
     public FactureResponseDto update(@PathVariable Long id, @Valid @RequestBody FactureRequestDto dto) {
         return factureService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public FactureResponseDto getById(@PathVariable Long id) {
         return factureService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public List<FactureResponseDto> getAll() {
         return factureService.getAll();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasAnyRole('COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','ADMINISTRATEUR')")
     public void delete(@PathVariable Long id) {
         factureService.delete(id);
     }

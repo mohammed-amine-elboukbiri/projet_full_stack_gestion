@@ -87,7 +87,7 @@ public class ProjetServiceImpl implements ProjetService {
                         "Employé introuvable avec l'id : " + dto.getChefProjetId()
                 ));
 
-        projetMapper.updateentitiesFromDto(dto, projet);
+        projetMapper.updateEntityFromDto(dto, projet);
         projet.setOrganisme(organisme);
         projet.setChefProjet(chefProjet);
 

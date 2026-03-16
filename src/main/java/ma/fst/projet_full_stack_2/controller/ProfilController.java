@@ -20,32 +20,32 @@ public class ProfilController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public ProfilResponseDto create(@Valid @RequestBody ProfilRequestDto dto) {
         return profilService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public ProfilResponseDto update(@PathVariable Long id, @Valid @RequestBody ProfilRequestDto dto) {
         return profilService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public ProfilResponseDto getById(@PathVariable Long id) {
         return profilService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public List<ProfilResponseDto> getAll() {
         return profilService.getAll();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMINISTRATEUR')")
     public void delete(@PathVariable Long id) {
         profilService.delete(id);
     }

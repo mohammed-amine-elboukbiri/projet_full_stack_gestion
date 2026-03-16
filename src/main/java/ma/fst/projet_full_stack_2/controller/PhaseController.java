@@ -21,7 +21,7 @@ public class PhaseController {
     private final PhaseService phaseService;
 
     @GetMapping("/page")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public PageResponseDto<PhaseResponseDto> getAllPaginated(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
@@ -33,28 +33,28 @@ public class PhaseController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','ADMINISTRATEUR')")
 
     public PhaseResponseDto create(@Valid @RequestBody PhaseRequestDto dto) {
         return phaseService.create(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
 
     public PhaseResponseDto update(@PathVariable Long id, @Valid @RequestBody PhaseRequestDto dto) {
         return phaseService.update(id, dto);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
 
     public PhaseResponseDto getById(@PathVariable Long id) {
         return phaseService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
 
     public List<PhaseResponseDto> getAll() {
         return phaseService.getAll();
@@ -62,14 +62,14 @@ public class PhaseController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
 
     public void delete(@PathVariable Long id) {
         phaseService.delete(id);
     }
 
     @PatchMapping("/{id}/etat")
-    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('CHEF_PROJET','COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
 
     public PhaseResponseDto updateEtat(@PathVariable Long id, @RequestBody PhaseEtatDto dto) {
         return phaseService.updateEtat(id, dto);

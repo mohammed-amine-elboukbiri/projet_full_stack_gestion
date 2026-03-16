@@ -20,7 +20,7 @@ public class DocumentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public DocumentResponseDto create(@Valid @RequestBody DocumentRequestDto dto) {
         return documentService.create(dto);
     }
@@ -31,20 +31,20 @@ public class DocumentController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','COMPTABLE','ADMINISTRATEUR')")
     public DocumentResponseDto getById(@PathVariable Long id) {
         return documentService.getById(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','COMPTABLE','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','COMPTABLE','ADMINISTRATEUR')")
     public List<DocumentResponseDto> getAll() {
         return documentService.getAll();
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('SECRETAIRE','CHEF_PROJET','DIRECTEUR','ADMINISTRATEUR')")
     public void delete(@PathVariable Long id) {
         documentService.delete(id);
     }
