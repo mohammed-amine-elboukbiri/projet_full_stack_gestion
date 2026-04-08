@@ -175,7 +175,7 @@ public class ProjetServiceImpl implements ProjetService {
                 .toList();
     }
     private void checkProjetModificationPermission(Projet projet) {
-        if (securityUtils.hasRole("ADMIN") || securityUtils.hasRole("DIRECTEUR")) {
+        if (securityUtils.hasRole("ADMINISTRATEUR") || securityUtils.hasRole("DIRECTEUR")) {
             return;
         }
 
@@ -202,7 +202,7 @@ public class ProjetServiceImpl implements ProjetService {
         throw new UnauthorizedActionException("Vous n'avez pas le droit de modifier ce projet");
     }
     private void checkProjetReadPermission(Projet projet) {
-        if (securityUtils.hasRole("ADMIN")
+        if (securityUtils.hasRole("ADMINISTRATEUR")
                 || securityUtils.hasRole("DIRECTEUR")
                 || securityUtils.hasRole("COMPTABLE")
                 || securityUtils.hasRole("SECRETAIRE")) {

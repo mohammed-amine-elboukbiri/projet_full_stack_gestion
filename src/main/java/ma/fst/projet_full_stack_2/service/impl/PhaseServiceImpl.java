@@ -166,7 +166,7 @@ public class PhaseServiceImpl implements PhaseService {
         return phaseMapper.toResponseDto(phaseRepository.save(phase));
     }
     private void checkProjetPermissionForCreation(Projet projet) {
-        if (securityUtils.hasRole("ADMIN") || securityUtils.hasRole("DIRECTEUR")) {
+        if (securityUtils.hasRole("ADMINISTRATEUR") || securityUtils.hasRole("DIRECTEUR")) {
             return;
         }
 
@@ -194,7 +194,7 @@ public class PhaseServiceImpl implements PhaseService {
     }
 
     private void checkPhasePermission(Phase phase) {
-        if (securityUtils.hasRole("ADMIN") || securityUtils.hasRole("DIRECTEUR") || securityUtils.hasRole("COMPTABLE")) {
+        if (securityUtils.hasRole("ADMINISTRATEUR") || securityUtils.hasRole("DIRECTEUR") || securityUtils.hasRole("COMPTABLE")) {
             return;
         }
 

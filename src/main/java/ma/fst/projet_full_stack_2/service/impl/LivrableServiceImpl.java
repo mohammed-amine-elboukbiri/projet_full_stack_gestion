@@ -112,7 +112,7 @@ public class LivrableServiceImpl implements LivrableService {
     }
     private void checkLivrablePermission(Phase phase) {
 
-        if (securityUtils.hasRole("ADMIN") || securityUtils.hasRole("DIRECTEUR")) {
+        if (securityUtils.hasRole("ADMINISTRATEUR") || securityUtils.hasRole("DIRECTEUR")) {
             return;
         }
 

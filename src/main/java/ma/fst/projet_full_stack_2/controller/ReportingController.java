@@ -19,7 +19,7 @@ public class ReportingController {
     private final ReportingService reportingService;
 
     @GetMapping("/phases")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public List<PhaseReportingDto> getPhasesBetweenDates(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateDebut,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateFin
@@ -28,7 +28,7 @@ public class ReportingController {
     }
 
     @GetMapping("/phases-terminees-non-facturees")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public List<PhaseReportingDto> getPhasesTermineesNonFacturees(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateDebut,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateFin
@@ -37,7 +37,7 @@ public class ReportingController {
     }
 
     @GetMapping("/phases-facturees-non-payees")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public List<PhaseReportingDto> getPhasesFactureesNonPayees(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateDebut,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateFin
@@ -46,7 +46,7 @@ public class ReportingController {
     }
 
     @GetMapping("/phases-payees")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public List<PhaseReportingDto> getPhasesPayees(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateDebut,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateFin
@@ -54,7 +54,7 @@ public class ReportingController {
         return reportingService.getPhasesPayees(dateDebut, dateFin);
     }
     @GetMapping("/dashboard")
-    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMIN')")
+    @PreAuthorize("hasAnyRole('COMPTABLE','DIRECTEUR','ADMINISTRATEUR')")
     public DashboardDto getDashboard() {
         return reportingService.getDashboard();
     }

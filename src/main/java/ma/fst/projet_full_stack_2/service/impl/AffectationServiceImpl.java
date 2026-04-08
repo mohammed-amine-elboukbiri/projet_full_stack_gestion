@@ -121,7 +121,7 @@ public class AffectationServiceImpl implements AffectationService {
     }
     private void checkAffectationPermission(Phase phase) {
 
-        if (securityUtils.hasRole("ADMIN") || securityUtils.hasRole("DIRECTEUR")) {
+        if (securityUtils.hasRole("ADMINISTRATEUR") || securityUtils.hasRole("DIRECTEUR")) {
             return;
         }
 
