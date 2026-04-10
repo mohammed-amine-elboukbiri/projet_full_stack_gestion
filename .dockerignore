@@ -1,0 +1,15 @@
+.git
+.github
+.idea
+target
+frontend/node_modules
+frontend/dist
+frontend/.vite
+frontend/tsconfig.tsbuildinfo
+frontend/tsconfig.node.tsbuildinfo
+backend.out.log
+backend.err.log
+frontend/serve-dist.out.log
+frontend/serve-dist.err.log
+README.md
+k8s/rendered

@@ -1,0 +1,69 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'IMAGE_TAG', defaultValue: 'latest', description: 'Docker image tag produced by CI')
+        string(name: 'IMAGE_NAMESPACE', defaultValue: 'mohammed-amine-elboukbiri', description: 'Container registry namespace')
+    }
+
+    environment {
+        GIT_PUSH_CREDENTIALS_ID = 'github-push-creds'
+        GITOPS_BRANCH = 'main'
+    }
+
+    options {
+        timestamps()
+        disableConcurrentBuilds()
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Update GitOps Image Version') {
+            steps {
+                sh 'chmod +x .jenkins/update_gitops_images.sh'
+                sh ".jenkins/update_gitops_images.sh ${params.IMAGE_NAMESPACE} ${params.IMAGE_TAG}"
+            }
+        }
+
+        stage('Commit and Push to GitHub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: GIT_PUSH_CREDENTIALS_ID, usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                    sh '''
+                        git config user.name "Jenkins"
+                        git config user.email "jenkins@local"
+                        git add k8s/gitops/kustomization.yaml
+                        if git diff --cached --quiet; then
+                          echo "No GitOps changes to commit."
+                          exit 0
+                        fi
+                        git commit -m "ci: update GitOps image tag to ${IMAGE_TAG}"
+                        git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/mohammed-amine-elboukbiri/Application-Full-Stack-de-Gestion-de-Projets.git
+                        git push origin HEAD:${GITOPS_BRANCH}
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            emailext(
+                subject: "CD Success - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "GitOps manifests updated. ArgoCD can now deploy image tag ${params.IMAGE_TAG}.",
+                to: 'team@example.com'
+            )
+        }
+        failure {
+            emailext(
+                subject: "CD Failed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "The CD pipeline failed before GitOps update completed.",
+                to: 'team@example.com'
+            )
+        }
+    }
+}

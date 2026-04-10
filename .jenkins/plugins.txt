@@ -1,0 +1,11 @@
+workflow-aggregator
+git
+github
+job-dsl
+credentials
+credentials-binding
+plain-credentials
+ssh-credentials
+email-ext
+sonar
+dependency-check-jenkins-plugin

@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: project-management
+
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - mysql.yaml
+  - backend.yaml
+  - frontend.yaml
+  - ingress.yaml
+
+images:
+  - name: backend-image
+    newName: ghcr.io/mohammed-amine-elboukbiri/project-management-backend
+    newTag: latest
+  - name: frontend-image
+    newName: ghcr.io/mohammed-amine-elboukbiri/project-management-frontend
+    newTag: latest
