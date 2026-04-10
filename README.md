@@ -74,8 +74,8 @@ Les sociétés de services peinent à gérer efficacement leurs projets faute d'
 ## 🛠️ Technologies utilisées
 
 ### Backend
-- Java 17
-- Spring Boot 3.x
+- Java 21
+- Spring Boot 4.0.3
 - Spring Security + JWT
 - Spring Data JPA / Hibernate
 - Maven
@@ -93,7 +93,7 @@ Les sociétés de services peinent à gérer efficacement leurs projets faute d'
 ### DevOps
 - Docker & Docker Compose
 - Git / GitHub
-- Swagger / OpenAPI
+- PostMan
 
 ---
 
@@ -129,7 +129,7 @@ projet-suivi/
 ## ⚙️ Installation et exécution
 
 ### Prérequis
-- Java 17+
+- Java 21+
 - Node.js 18+
 - Maven 3.8+
 - Docker & Docker Compose (optionnel)
