@@ -30,27 +30,8 @@ Les sociétés de services peinent à gérer efficacement leurs projets faute d'
 
 ## 🏗️ Architecture du projet
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                      CLIENT (Browser)                   │
-│                  React + Axios + Redux                  │
-└─────────────────────────┬───────────────────────────────┘
-                          │ HTTP/REST (JSON)
-                          ▼
-┌─────────────────────────────────────────────────────────┐
-│               Backend — Spring Boot API                  │
-│   Controllers → Services → Repositories (JPA)           │
-│              Spring Security (JWT)                       │
-└─────────────────────────┬───────────────────────────────┘
-                          │
-                          ▼
-┌─────────────────────────────────────────────────────────┐
-│              Base de données — MySQL                     │
-│          (Projets, Phases, Livrables, Employés)          │
-└─────────────────────────────────────────────────────────┘
+![architecture ](https://github.com/user-attachments/assets/253d3d7e-9150-4455-aed3-8d0c2dab4cec)
 
-          Toute l'infrastructure est conteneurisée via Docker
-```
 
 ### Backend (Spring Boot)
 - API REST exposant les ressources projets, phases, livrables, utilisateurs
